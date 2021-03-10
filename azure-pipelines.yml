@@ -17,7 +17,7 @@ steps:
     versionType: 'AutoVersion'
     projectJsonPath: 'project.json'
     outputType: 'Tests'
-    orchestratorConnection: 'repotest'
+    orchestratorConnection: 'UipathHyd'
     outputPath: '$(Build.ArtifactStagingDirectory)\Output'
 
 
@@ -25,14 +25,14 @@ steps:
 - task: UiPathTest@2
   inputs:
     testTarget: 'TestSet'
-    orchestratorConnection: 'repotest'
+    orchestratorConnection: 'UipathHyd'
     testSet: 'test'
     folderName: 'test1'
   continueOnError: true
   
 - task: UiPathDeploy@2
   inputs:
-    orchestratorConnection: 'repotest'
+    orchestratorConnection: 'UipathHyd'
     packagesPath: '$(Build.ArtifactStagingDirectory)\Output'
     folderName: 'test1'
 
